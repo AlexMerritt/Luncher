@@ -1,0 +1,24 @@
+extends layout
+
+block scripts
+  script(src="javascripts/lunch.js")
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  table
+    ul
+      - var arr = places
+      - for(var i = 0; i < arr.length; ++i)
+        - var restObj = arr[i]; 
+        - var strName = restObj['name'];
+        - var strMenuUrl = restObj['menu-url'];
+          li
+            div
+              h3= strName
+              //- button(onClick='javascript:alert("' + strName + '")') Vote
+              button(onClick='Vote("' + strName + '")') Vote
+              a(href=strMenuUrl target="_blank") Menu
+             
+  
